@@ -35,17 +35,17 @@ public class Person
 
                 if (string.IsNullOrWhiteSpace(sLuong))
                 {
-                    throw new Exception("⚠️ Bạn phải nhập lương.");
+                    throw new Exception(" Bạn phải nhập lương.");
                 }
 
                 if (!double.TryParse(sLuong, out luong))
                 {
-                    throw new Exception("⚠️ Lương phải là một số.");
+                    throw new Exception(" Lương phải là một số.");
                 }
 
                 if (luong <= 0)
                 {
-                    throw new Exception("⚠️ Lương phải lớn hơn 0.");
+                    throw new Exception(" Lương phải lớn hơn 0.");
                 }
 
                 break; // nhập hợp lệ thì thoát vòng lặp
@@ -73,7 +73,7 @@ public class Person
     {
         if (ds == null || ds.Length == 0)
         {
-            Console.WriteLine("⚠️ Không có dữ liệu để sắp xếp.");
+            Console.WriteLine(" Không có dữ liệu để sắp xếp.");
             return;
         }
 
@@ -91,3 +91,4 @@ public class Person
         }
     }
 }
+
