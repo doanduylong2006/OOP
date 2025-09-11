@@ -1,7 +1,6 @@
-﻿using System;
-using System.Text;
+using System;
 
-class Person
+public class Person
 {
     // Thuộc tính
     public string HoTen { get; set; }
@@ -36,17 +35,17 @@ class Person
 
                 if (string.IsNullOrWhiteSpace(sLuong))
                 {
-                    throw new Exception(" Bạn phải nhập lương.");
+                    throw new Exception("⚠️ Bạn phải nhập lương.");
                 }
 
                 if (!double.TryParse(sLuong, out luong))
                 {
-                    throw new Exception(" Lương phải là một số.");
+                    throw new Exception("⚠️ Lương phải là một số.");
                 }
 
                 if (luong <= 0)
                 {
-                    throw new Exception(" Lương phải lớn hơn 0.");
+                    throw new Exception("⚠️ Lương phải lớn hơn 0.");
                 }
 
                 break; // nhập hợp lệ thì thoát vòng lặp
@@ -74,7 +73,7 @@ class Person
     {
         if (ds == null || ds.Length == 0)
         {
-            Console.WriteLine(" Không có dữ liệu để sắp xếp.");
+            Console.WriteLine("⚠️ Không có dữ liệu để sắp xếp.");
             return;
         }
 
@@ -90,39 +89,5 @@ class Person
                 }
             }
         }
-    }
-}
-
-class QuanLyNguoi
-{
-    static void Main(string[] args)
-    {
-        Console.OutputEncoding = System.Text.Encoding.UTF8;
-
-
-        Person[] danhSach = new Person[3];
-
-        // Nhập thông tin 3 người
-        for (int i = 0; i < 3; i++)
-        {
-            danhSach[i] = Person.NhapThongTin();
-        }
-
-        Console.WriteLine("\n--- Thông tin trước khi sắp xếp ---");
-        foreach (Person p in danhSach)
-        {
-            p.HienThiThongTin();
-        }
-
-        // Sắp xếp
-        Person.SapXepTheoLuong(danhSach);
-
-        Console.WriteLine("\n--- Thông tin sau khi sắp xếp (theo lương tăng dần) ---");
-        foreach (Person p in danhSach)
-        {
-            p.HienThiThongTin();
-        }
-
-        Console.ReadKey();
     }
 }
