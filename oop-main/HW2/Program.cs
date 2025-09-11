@@ -1,10 +1,32 @@
-﻿internal class Program
+using System;
+
+class Program
 {
-    
-    private static void Main(string[] args)
+    static void Main(string[] args)
     {
-        MyDate md1 = new MyDate(DateTime.Now.Day,DateTime.Now.Month, DateTime.Now.Year);
-        Console.WriteLine("{0}/{1}/{2}",md1.Day,md1.Month,md1.Year);
+        Person[] danhSach = new Person[3];
+
+        // Nhập thông tin 3 người
+        for (int i = 0; i < 3; i++)
+        {
+            danhSach[i] = Person.NhapThongTin();
+        }
+
+        Console.WriteLine("\n--- Thông tin trước khi sắp xếp ---");
+        foreach (Person p in danhSach)
+        {
+            p.HienThiThongTin();
+        }
+
+        // Sắp xếp theo lương tăng dần
+        Person.SapXepTheoLuong(danhSach);
+
+        Console.WriteLine("\n--- Thông tin sau khi sắp xếp (theo lương tăng dần) ---");
+        foreach (Person p in danhSach)
+        {
+            p.HienThiThongTin();
+        }
+
         Console.ReadKey();
     }
 }
